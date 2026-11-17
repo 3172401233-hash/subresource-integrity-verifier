@@ -1,0 +1,16 @@
+{
+  "name": "subresource-integrity-verifier",
+  "version": "1.0.0",
+  "description": "Offline Subresource Integrity verifier for scripts, ES modules, stylesheets and fonts",
+  "main": "index.js",
+  "bin": {
+    "sri-verify": "bin/sri-verify.js"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

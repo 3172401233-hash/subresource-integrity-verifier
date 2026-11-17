@@ -1,0 +1,42 @@
+{
+  "url": "https://example.test/app/index.html",
+  "html": "<script type=\"importmap\">{\"imports\":{\"vendor\":\"https://cdn.test/vendor/index.js\"}}</script><script src=\"./app.js\" type=\"module\" integrity=\"sha256-REPLACE_WITH_REAL_DIGEST\"></script><link rel=\"stylesheet\" href=\"./styles.css\" integrity=\"sha256-REPLACE_WITH_REAL_DIGEST\">",
+  "importMap": {
+    "imports": {
+      "vendor": "https://cdn.test/vendor/index.js"
+    },
+    "scopes": {},
+    "integrity": {
+      "https://cdn.test/vendor/index.js": "sha256-REPLACE_WITH_REAL_DIGEST"
+    }
+  },
+  "moduleGraph": {
+    "https://example.test/app/app.js": {
+      "imports": ["vendor"],
+      "dynamicImports": ["./lazy.js"],
+      "integrity": "sha256-REPLACE_WITH_REAL_DIGEST"
+    },
+    "https://example.test/app/lazy.js": {
+      "integrity": "sha256-REPLACE_WITH_REAL_DIGEST"
+    },
+    "https://cdn.test/vendor/index.js": {}
+  },
+  "resources": {
+    "https://example.test/app/app.js": {
+      "body": "import \"vendor\"; const load = () => import(\"./lazy.js\");"
+    },
+    "https://example.test/app/lazy.js": {
+      "body": "export default function lazy() {}"
+    },
+    "https://cdn.test/vendor/index.js": {
+      "body": "export default {};"
+    },
+    "https://example.test/app/styles.css": {
+      "body": "@font-face { font-family: Brand; src: url(\"./fonts/brand.woff2\"); }"
+    },
+    "https://example.test/app/fonts/brand.woff2": {
+      "body": "woff2-bytes"
+    }
+  },
+  "cacheVersions": {}
+}
